@@ -187,7 +187,7 @@ When using Debian packages, the ideal way to customize Marathon is to specify co
       If not provided, the [AWS default credentials provider chain](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html) is used to look up aws credentials.
 * <span class="label label-default">v1.6.0</span>`--draining_seconds` (Optional. Default: 0):
     Time (in seconds) when Marathon will start declining offers before a [maintenance window](http://mesos.apache.org/documentation/latest/maintenance/) start time.
-    **Note:** This flag has no effect if `--maintenance_behavior` is set to `ignore`.
+    **Note:** This flag has no effect if `--maintenance_behavior` is set to `disabled`.
 * <span class="label label-default">> v1.6.352</span>`--max_running_deployments` (Optional. Default: 100):
     Maximum number of concurrently running deployments. Should the user try to submit more updates than set by this flag a HTTP 403 Error is returned with an explanatory error message.
 * `--[disable_]suppress_offers` (Optional. Default: disabled)
@@ -195,7 +195,7 @@ When using Debian packages, the ideal way to customize Marathon is to specify co
     of Mesos in larger clusters, but enabling this flag will cause Marathon to more slowly release reservations.
 * <span class="label label-default">v1.6.0</span>`--maintenance_behavior` (Optional. Default: decline_offers)
     Specifies how Marathon should behave agents undergoing a maintenance window. Valid options are `decline_offers` and
-    `ignore`. See the [maintenance mode docs](./maintenance-mode.html) for more information.
+    `disabled`. See the [maintenance mode docs](./maintenance-mode.html) for more information.
 
 ## Tuning Flags for Offer Matching/Launching Tasks
 

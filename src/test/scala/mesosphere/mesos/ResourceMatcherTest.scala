@@ -872,14 +872,14 @@ class ResourceMatcherTest extends UnitTest with Inside with TableDrivenPropertyC
     }
 
     "when ignore maintenance mode is configured, offers with an active maintenance window should match" in {
-      val maintenanceIgnoreConf = AllConf.withTestConfig("--maintenance_behavior", "ignore")
+      val maintenanceDisabledConf = AllConf.withTestConfig("--maintenance_behavior", "disabled")
       val offer = MarathonTestHelper.makeBasicOfferWithUnavailability(clock.now).build
       val app = AppDefinition(
         id = "/test".toRootPath,
         resources = Resources(cpus = 0.1, mem = 128.0, disk = 0.0)
       )
 
-      val resourceMatchResponse = ResourceMatcher.matchResources(offer, app, knownInstances = Seq.empty, unreservedResourceSelector, maintenanceIgnoreConf, Seq.empty)
+      val resourceMatchResponse = ResourceMatcher.matchResources(offer, app, knownInstances = Seq.empty, unreservedResourceSelector, maintenanceDisabledConf, Seq.empty)
 
       resourceMatchResponse shouldBe a[ResourceMatchResponse.Match]
       val res = resourceMatchResponse.asInstanceOf[ResourceMatchResponse.Match].resourceMatch

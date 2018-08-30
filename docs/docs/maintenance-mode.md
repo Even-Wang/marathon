@@ -9,7 +9,7 @@ As of version 1.6, Marathon has simple built-in support for [Mesos Maintenance P
 Maintenance Behavior has the following modes:
 
 - `decline_offers` (default) - Marathon will decline offers for agents currently undergoing a maintenance window. Furthermore, the flag `draining_seconds` can be specified to cause Marathon to begin declining offers for an agent before its maintenance window begin.
-- `ignore` - Marathon ignores agent maintenance windows, accepting offers and launching tasks on agents regardless of their maintenance window state.
+- `disabled` - Marathon ignores agent maintenance windows, accepting offers and launching tasks on agents regardless of their maintenance window state.
 
 ## Limitations
 
