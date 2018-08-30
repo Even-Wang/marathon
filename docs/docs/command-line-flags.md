@@ -194,8 +194,8 @@ When using Debian packages, the ideal way to customize Marathon is to specify co
     Controls whether or not Marathon will suppress offers if there is nothing to launch. Enabling helps the performance
     of Mesos in larger clusters, but enabling this flag will cause Marathon to more slowly release reservations.
 * <span class="label label-default">v1.6.0</span>`--maintenance_behavior` (Optional. Default: decline_offers)
-    Specifies how Marathon should behave with Mesos Maintenance mode. Valid options are `decline_offers` and
-    `ignore`. See [Maintenance Mode](./maintenance-mode.html) for more information.
+    Specifies how Marathon should behave agents undergoing a maintenance window. Valid options are `decline_offers` and
+    `ignore`. See the [maintenance mode docs](./maintenance-mode.html) for more information.
 
 ## Tuning Flags for Offer Matching/Launching Tasks
 
