@@ -27,6 +27,17 @@ Event-proxying has the following deprecation schedule:
 - 1.7.x - Standby Marathon instances return redirect responses. The old behavior of proxying event streams can be brought back with the command-line argument `--deprecated_features=proxy_events`.
 - 1.8.x - Event stream proxying logic will be completely removed. If `--deprecated_features=proxy_events` is still specified, Marathon will refuse to launch, with an error.
 
+### Maintenance Mode Support Production Ready, Now Default
+
+Support for declining offers for agents undergoing a maintenance window is now enabled by default, and the feature is
+now recommended for production use.
+
+Previously, this support was enabled by `--enable_features maintenance_mode`. Operators should remove it from their
+configuration as it now has no effect. In Marathon 1.8.x, it will be considered erroneous to specify it.
+
+The flag `--maintenance_behavior` has been introduced. To revert back to the default maintenance mode behavior in
+Marathon 1.6.x and earlier, operators can specify `--maintenance_behavior ignore`.
+
 ### Fixed Issues
 
 - [MARATHON-8017](https://jira.mesosphere.com/browse/MARATHON-8017) - Fixed various issues when posting groups with relative ids.
